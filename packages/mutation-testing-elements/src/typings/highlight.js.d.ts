@@ -6,7 +6,9 @@ declare module 'highlight.js/lib/highlight' {
   function registerLanguage(name: string, language: Language): void;
   function highlight(language: string, code: string): HighlightResult;
   function highlightBlock(code: HTMLElement): void;
+  function lineNumbersBlock(code: HTMLElement): void;
 }
+declare module 'highlightjs-line-numbers.js';
 
 declare module 'highlight.js/lib/languages/javascript' {
   export = Language;

@@ -12,6 +12,7 @@ import { bootstrap, highlightJS } from '../../style';
 import { renderCode } from '../../lib/codeHelpers';
 import { FileResult, MutantResult } from 'mutation-testing-report-schema';
 import { getEmojiForStatus } from '../../lib/htmlHelpers';
+import 'highlightjs-line-numbers.js';
 
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('typescript', typescript);
@@ -110,6 +111,7 @@ export class MutationTestReportFileComponent extends LitElement {
     const code = this.root.querySelector('code');
     if (code) {
       hljs.highlightBlock(code);
+      hljs.lineNumbersBlock(code);
       this.forEachMutantComponent(mutantComponent => {
         mutantComponent.mutant = this.model.mutants
           .find(mutant => mutant.id.toString() === mutantComponent.getAttribute('mutant-id'));
